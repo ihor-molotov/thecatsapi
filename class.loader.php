@@ -11,14 +11,15 @@
  * */
 
 defined("ABSPATH") or die();
+
 if (!class_exists('TheCatsAPi_Loader')) {
+
   class TheCatsAPi_Loader
   {
     public function init()
     {
-      if (class_exists('TheCatsAPi_Admin')) {
-        require_once('admin/class.admin.php');
-      }
+      require_once('admin/class.admin.php');
+
       add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_styles']);
 
       add_action('wp_enqueue_scripts', [$this, 'enqueue_public_styles']);
@@ -45,8 +46,7 @@ if (!class_exists('TheCatsAPi_Loader')) {
       include plugin_dir_path(__FILE__) . 'public/public_template.php';
     }
   }
-  if (class_exists('TheCatsAPi_Loader')) {
-    $cats = new TheCatsAPi_Loader();
-    $cats->init();
-  }
+
+  $cats = new TheCatsAPi_Loader();
+  $cats->init();
 }

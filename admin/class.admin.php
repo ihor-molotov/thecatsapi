@@ -1,6 +1,8 @@
 <?php
 defined("ABSPATH") or die();
+
 if (!class_exists('TheCatsAPi_Admin')) {
+
   class TheCatsAPi_Admin
   {
     public function init()
