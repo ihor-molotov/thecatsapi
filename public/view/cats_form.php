@@ -27,7 +27,7 @@ if ($responce_code == 200) {
       <form method="POST" class="main_form">
         <select class="form-select" name="pets_breed" id="pets">
           <?php foreach ($list_of_breeds as $breed) : ?>
-            <option <?php echo ($_REQUEST['pets_breed'] == $breed->id) ? 'selected' : ''; ?> value="<?php echo $breed->id ?>"><?php echo $breed->name; ?></option>
+            <option value="<?php echo $breed->id ?>"><?php echo $breed->name; ?></option>
           <?php endforeach; ?>
         </select>
         <button type="submit" class="btn btn-success"><?php _e('Get info about breed', 'capi'); ?></button>
@@ -44,9 +44,9 @@ if ($responce_code == 200) {
  * Get info about selected breed
  */
 
-$selected_breed = $_REQUEST['pets_breed'];
-if ($selected_breed) {
-  $selected_breed_url = "https://api.thecatapi.com/v1/images/search?breed_id=$selected_breed";
+
+if (!empty($_REQUEST['pets_breed'])) {
+  $selected_breed_url = 'https://api.thecatapi.com/v1/images/search?breed_id=' . $_REQUEST['pets_breed'];
   $selected_response = wp_remote_get(
     $selected_breed_url,
     array(
