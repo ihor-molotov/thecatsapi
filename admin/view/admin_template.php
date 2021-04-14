@@ -1,7 +1,7 @@
 <h1><?php _e('TheCatsAPI Settings', 'capi'); ?></h1>
 
 <p><?php _e('You can use this shortcode for display pets filter page :', 'capi'); ?> </p>
-<h4 class="shortcode"> [show_cats_on_page] or <code><?php echo do_shortcode('[show_cats_on_page] '); ?></code></h4>
+<h4 class="shortcode"> [show_cats_on_page]</h4>
 
 <div class="wrap">
 
