@@ -56,7 +56,9 @@ if (!empty($_REQUEST['pets_breed'])) {
     )
   );
   $selectes_breed = wp_remote_retrieve_body($selected_response);
+
   $breed_response_info = json_decode($selectes_breed);
+
   $selected_breed_responce_code = wp_remote_retrieve_response_code($selected_response);
 
   if ($selected_breed_responce_code == 200) { ?>
